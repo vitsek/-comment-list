@@ -19,7 +19,6 @@ export default {
             state.totalPages = Math.ceil(state.messages.length / state.perPage);
             state.page = state.totalPages;
             window.scrollTo(0, 0);
-            console.log(state.messages);
         },
         setPage(state, page) {
             state.page = page;
@@ -27,8 +26,8 @@ export default {
         }
     },
     actions:{
-        async fetchMessages(context, limit = 3, start = 1){
-            const result = await fetch(`https://jsonplaceholder.typicode.com/comments?_limit=${limit}&_start${start}`);
+        async fetchMessages(context){
+            const result = await fetch(`https://jsonplaceholder.typicode.com/comments?_limit`);
             const messages = await result.json();
             context.commit('updateMessages', messages);
         }
