@@ -5,7 +5,7 @@
             <textarea class="main__textarea" v-model="body" placeholder="Оставьте свой комментарий...">
             </textarea>
             <div class="main__send">
-                <button class="main__button" @click.prevent="submit"><span class="main__span">Отправить</span></button>
+                <button class="main__button" @click.prevent="submit"><span>Отправить</span></button>
             </div>  
         </div>
         <div class="main__pagination">
@@ -164,7 +164,7 @@ export default {
         width:5%;
     }
 
-    .main__span {
+    .main__button span {
          font-size: 12px;
     }
 }
