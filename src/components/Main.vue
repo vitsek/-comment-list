@@ -4,7 +4,9 @@
         <div class="main__create-comment">
             <textarea class="main__textarea" v-model="body" placeholder="Оставьте свой комментарий...">
             </textarea>
-            <button class="main__button" @click.prevent="submit">Отправить</button>
+            <div class="main__send">
+                <button class="main__button" @click.prevent="submit"><span class="main__span">Отправить</span></button>
+            </div>  
         </div>
         <div class="main__pagination">
             <div class="main__page"
@@ -12,7 +14,7 @@
                 v-bind:class="{ page_active: page === pageNumber }"
                 :key="pageNumber"
                 @click="setPage(pageNumber)">
-                <span class="main__page-span">{{pageNumber}}</span>
+                <span class="main__span">{{pageNumber}}</span>
             </div>
         </div>
     </div>
@@ -63,6 +65,7 @@ export default {
     flex-direction: column;
     align-items: center;
     font-size: 18px;
+    justify-content: center;
 }
 
 .main__textarea {
@@ -83,12 +86,13 @@ export default {
     margin-top: 16px;
     border: none;
     border-radius: 10px;
-    min-height: 26px;
-    padding-left: 24px;
-    padding-right: 24px;
+    max-height: 26px;
+    padding-left: 3%;
+    padding-right: 3%;
     box-shadow: 0 2px 5px 0 rgb(0 0 0 / 26%);
     background-color: transparent;
     font-size: inherit;
+    text-align: center;
 }
 
 .main__button:focus {
@@ -99,6 +103,10 @@ export default {
     box-shadow: 0 2px 2px 0 rgb(0 0 0 / 26%);
 }
 
+.main__button span {
+         word-wrap:break-word;
+    } 
+
 .main__create-comment {
     width: 80%;
     border: 1px solid rgba(128, 128, 128, 0.299);
@@ -107,40 +115,57 @@ export default {
     box-shadow: 0 2px 5px 0 rgb(0 0 0 / 26%);
 }
 
-.main__pagination{
+.main__pagination {
     display: flex;
     flex-wrap: wrap;
-    justify-content: center;
     margin-top: 5%;
     width: 100%;
+    justify-content: center;
 }
 
 .main__page {
     padding: 8px;
-    margin-right: 2%;
-    border: solid 1px #e7e7e7;
+    border: solid 1px #929191;
     border-radius: 4px;
     width: 3%;
+    padding: 3px 2px;
+    display: flex;
+    justify-content: center;
+    margin-right: 15px;
+    height: 4%;
 }
 
 .main__page:hover{
     background: rgba(14, 13, 13, 0.137);
     cursor: pointer;
-    color:#fff;
+    color:rgb(197, 193, 193);
 }
 
 .page_active {
     background: rgba(146, 132, 132, 0.418);
 }
 
-.main__page-span{
-    color:rgba(1, 17, 24, 0.726)
+.main__span{
+    color:rgba(0, 0, 0, 0.781);
 }
 
 @media (max-width: 700px) {
+    
     .main {
         width: 85%;
         padding: 24px;
+    }
+
+    .main__textarea{
+        height:70px;
+
+    }
+    .main__page {
+        width:5%;
+    }
+
+    .main__span {
+         font-size: 12px;
     }
 }
 

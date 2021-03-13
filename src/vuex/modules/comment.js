@@ -27,7 +27,7 @@ export default {
     },
     actions:{
         async fetchMessages(context){
-            const result = await fetch(`https://jsonplaceholder.typicode.com/comments?_limit`);
+            const result = await fetch(`https://jsonplaceholder.typicode.com/comments`);
             const messages = await result.json();
             context.commit('updateMessages', messages);
         }
